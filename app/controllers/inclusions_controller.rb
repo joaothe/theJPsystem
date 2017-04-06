@@ -1,4 +1,8 @@
 class InclusionsController < ApplicationController
+	def index
+		@inclusions = Inclusion.all
+	end	 
+
 	def show
 		@inclusion = Inclusion.find(params[:id])
 	end	
@@ -17,5 +21,5 @@ class InclusionsController < ApplicationController
 		def inclusion_params
 			params.require(:inclusion).permit(:title, :text)
 		end
-		
+
 end
