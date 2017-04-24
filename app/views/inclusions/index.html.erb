@@ -13,6 +13,9 @@
       <td><%= inclusion.text %></td>
       <td><%= link_to 'Show', inclusion_path(inclusion) %></td>
       <td><%= link_to 'Edit', edit_inclusion_path(inclusion) %></td>
+      <td><%= link_to 'Destroy', inclusion_path(inclusion),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

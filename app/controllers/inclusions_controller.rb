@@ -35,6 +35,14 @@ class InclusionsController < ApplicationController
   	end
 	end
 
+
+	def destroy
+  	@inclusion = Inclusion.find(params[:id])
+  	@inclusion.destroy
+
+  	redirect_to inclusions_path
+	end
+
 	private
 		def inclusion_params
 			params.require(:inclusion).permit(:title, :text)
