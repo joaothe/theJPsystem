@@ -1,4 +1,20 @@
 <%= form_for :inclusion, url: inclusions_path do |f| %>
+
+  <% if @inclusion.errors.any? %>
+   <div id="error_explanation">
+     <h2>
+       <%= pluralize(@inclusion.errors.count, "error") %> prohibited
+       this inclusion from being saved:
+     </h2>
+     <ul>
+       <% @inclusion.errors.full_messages.each do |msg| %>
+         <li><%= msg %></li>
+       <% end %>
+     </ul>
+   </div>
+  <% end %>
+
+
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>

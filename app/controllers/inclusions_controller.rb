@@ -11,6 +11,10 @@ class InclusionsController < ApplicationController
 		@inclusion = Inclusion.new
 	end
 
+	def edit
+		@inclusion = Inclusion.find(params[:id])
+	end
+
 	def create
 		@inclusion = Inclusion.new(inclusion_params)
 
@@ -19,6 +23,16 @@ class InclusionsController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def update
+  	@inclusion = Inclusion.find(params[:id])
+
+  	if @inclusion.update(inclusion_params)
+    	redirect_to @inclusion
+  	else
+    	render 'edit'
+  	end
 	end
 
 	private

@@ -1,16 +1,18 @@
 <h1>Listing the inclusions</h1>
- 
+
 <table>
   <tr>
     <th>Title</th>
     <th>Text</th>
+    <th colspan="2"></th>
   </tr>
- 
+
   <% @inclusions.each do |inclusion| %>
     <tr>
       <td><%= inclusion.title %></td>
       <td><%= inclusion.text %></td>
       <td><%= link_to 'Show', inclusion_path(inclusion) %></td>
+      <td><%= link_to 'Edit', edit_inclusion_path(inclusion) %></td>
     </tr>
   <% end %>
 </table>
