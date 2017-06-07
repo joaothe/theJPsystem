@@ -8,6 +8,34 @@
   <%= @inclusion.text %>
 </p>
 
+<h2>Comments</h2>
+<% @inclusion.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br/>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :body %><br/>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <td><%= link_to 'Edit', edit_inclusion_path(@inclusion) %></td>
 
 <%= link_to 'Back' , inclusions_path %>
