@@ -9,17 +9,7 @@
 </p>
 
 <h2>Comments</h2>
-<% @inclusion.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
+<%= render @inclusion.comments %>
 
 <h2>Add a comment:</h2>
 <%= form_for([@inclusion, @inclusion.comments.build]) do |f| %>
